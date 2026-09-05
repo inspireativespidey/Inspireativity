@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#13072f">
+    <meta name="description" content="Inspireativity — a safe space to share, talk, create, belong and inspire.">
+    <title>{% block title %}Inspireativity{% endblock %}</title>
+
+    <link rel="icon" type="image/jpeg" href="{{ url_for('static', filename='images/map/spidey-marker.jpg') }}">
+    <link rel="preconnect" href="https://unpkg.com">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+          integrity="sha256-p4NxAoJBhIINfQ3u6m1d9Q9cY8nQm0dK1X9sJYl8G2M="
+          crossorigin="">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+          crossorigin="anonymous" referrerpolicy="no-referrer">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    {% block head %}{% endblock %}
+</head>
+<body>
+    <div class="site-background" aria-hidden="true"></div>
+    <div class="site-overlay" aria-hidden="true"></div>
+
+    <header class="site-header">
+        <a class="brand" href="{{ url_for('about') }}" aria-label="Inspireativity home">
+            <span class="brand-main">inspire</span><span class="brand-accent">ativity</span>
+        </a>
+
+        <button class="menu-toggle" type="button" aria-label="Open navigation" aria-expanded="false">
+            <i class="fa-solid fa-bars"></i>
+        </button>
+
+        <nav class="site-nav" aria-label="Primary navigation">
+            <a class="{{ 'active' if active == 'about' else '' }}" href="{{ url_for('about') }}">About</a>
+            <a class="{{ 'active' if active == 'meetups' else '' }}" href="{{ url_for('meetups') }}">Meet Ups</a>
+            <a class="{{ 'active' if active == 'map' else '' }}" href="{{ url_for('spidey_map') }}">Spidey Map</a>
+            <a class="{{ 'active' if active == 'contact' else '' }}" href="{{ url_for('contact') }}">Contact</a>
+        </nav>
+    </header>
+
+    <main class="page-shell">
+        {% block content %}{% endblock %}
+    </main>
+
+    <footer class="site-footer">
+        <div class="disclaimer">
+            <strong>Disclaimer</strong>
+            <p>
+                Inspireativity is an independent, anonymous, non-profit community initiative inspired by
+                Spider-Man and Tom Holland. Spider-Man and related characters, names, imagery and intellectual
+                property belong to their respective copyright and trademark holders, including Marvel and its
+                associated entities. This website is not affiliated with, endorsed by, sponsored by, or officially
+                connected to Marvel, Sony, Disney, or Tom Holland. The Spider-Man inspiration is used as a creative
+                community theme and as a way of giving back to the community.
+            </p>
+        </div>
+        <div class="footer-bottom">
+            <span>Talk. Share. Belong. Create. Inspire. 🕷️</span>
+            <span>{{ site_name }}</span>
+        </div>
+    </footer>
+
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+    {% block scripts %}{% endblock %}
+</body>
+</html>

@@ -1,0 +1,93 @@
+{% extends "base.html" %}
+{% block title %}Meet Ups · Inspireativity{% endblock %}
+
+{% block content %}
+
+<section class="page-intro">
+    <h1>Meet Ups</h1>
+</section>
+
+<section class="meetup-grid">
+
+    {% for meetup in meetups|reverse %}
+
+    <article class="meetup-card">
+
+        <!-- Meetup post header -->
+        <div class="meetup-meta">
+            <span>
+                <i class="fa-regular fa-calendar"></i>
+                {{ meetup.date }}
+            </span>
+
+            <span>
+                <i class="fa-solid fa-location-dot"></i>
+                {{ meetup.location }}
+            </span>
+        </div>
+
+        <!-- Photo gallery -->
+        <div class="meetup-gallery" data-carousel>
+
+            {% for photo in meetup.photos %}
+                <img
+                    src="{{ photo }}"
+                    alt="Photo from Inspireativity meetup at {{ meetup.location }}"
+                    class="gallery-slide {{ 'is-active' if loop.first else '' }}"
+                >
+            {% endfor %}
+
+            {% if meetup.photos|length > 1 %}
+
+                <button
+                    class="gallery-arrow prev"
+                    type="button"
+                    aria-label="Previous photo"
+                >
+                    ‹
+                </button>
+
+                <button
+                    class="gallery-arrow next"
+                    type="button"
+                    aria-label="Next photo"
+                >
+                    ›
+                </button>
+
+                <div class="gallery-dots" aria-hidden="true">
+                    {% for photo in meetup.photos %}
+                        <span class="{{ 'active' if loop.first else '' }}"></span>
+                    {% endfor %}
+                </div>
+
+            {% endif %}
+
+        </div>
+
+        <!-- Meetup post content -->
+        <div class="meetup-post-content">
+
+            <h2>Meet Up #{{ meetup.id }}</h2>
+
+            <p>
+                {{ meetup.description }}
+            </p>
+
+            <a
+                class="text-link"
+                href="{{ url_for('meetup_detail', meetup_id=meetup.id) }}"
+            >
+                View meetup <span>→</span>
+            </a>
+
+        </div>
+
+    </article>
+
+    {% endfor %}
+
+</section>
+
+
+{% endblock %}

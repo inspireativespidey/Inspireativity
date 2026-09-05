@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+{% block title %}Meet Up #{{ meetup.id }} · Inspireativity{% endblock %}
+{% block content %}
+<section class="page-intro compact">
+    <a class="back-link" href="{{ url_for('meetups') }}">← All meet ups</a>
+    <p class="eyebrow">Inspireativity meetup</p>
+    <h1>Meet Up #{{ meetup.id }}</h1>
+    <div class="meetup-meta large">
+        <span><i class="fa-regular fa-calendar"></i> {{ meetup.date }}</span>
+        <span><i class="fa-solid fa-location-dot"></i> {{ meetup.location }}</span>
+    </div>
+</section>
+
+<section class="content-panel detail-panel">
+    <div class="detail-gallery" data-carousel>
+        {% for photo in meetup.photos %}
+            <img src="{{ photo }}" alt="Photo from {{ meetup.location }}" class="gallery-slide {{ 'is-active' if loop.first else '' }}">
+        {% endfor %}
+        {% if meetup.photos|length > 1 %}
+        <button class="gallery-arrow prev" type="button" aria-label="Previous photo">‹</button>
+        <button class="gallery-arrow next" type="button" aria-label="Next photo">›</button>
+        <div class="gallery-dots" aria-hidden="true">
+            {% for photo in meetup.photos %}
+                <span class="{{ 'active' if loop.first else '' }}"></span>
+            {% endfor %}
+        </div>
+        {% endif %}
+    </div>
+    <div class="detail-copy">
+        <h2>About this meetup</h2>
+        <p>{{ meetup.description }}</p>
+        <a class="button-link" href="{{ url_for('spidey_map') }}">See it on the Spidey Map</a>
+    </div>
+</section>
+{% endblock %}

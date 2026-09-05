@@ -1,0 +1,100 @@
+{% extends "base.html" %}
+{% block title %}About · Inspireativity{% endblock %}
+{% block content %}
+<section class="hero-section">
+    <p class="eyebrow">A place to share, create, and belong</p>
+    <h1>Inspireativity</h1>
+    <div class="portrait-wrap">
+        <img class="portrait" src="{{ url_for('static', filename='images/about/inspireativity.jpg') }}"
+             alt="Inspireativity">
+    </div>
+</section>
+
+<section class="content-panel manifesto">
+    <p>Hey everyone! I’m <strong>Inspireative_Spidey</strong>, a founding moderator of <strong>r/Inspireativity</strong>.</p>
+
+    <p>Welcome to the very first chapter of this community.</p>
+
+    <p>Inspireativity is built around a simple idea:</p>
+    <p><strong>You don’t have to fit a particular mold and whoever you are you are never alone.</strong></p>
+
+    <p>Maybe you’re neurodivergent. Maybe you just feel lonely. Maybe you’ve always felt a little different. Maybe your brain jumps between ideas, notices things other people miss, or gets completely absorbed in something you’re passionate about.</p>
+
+    <p>Maybe you create art. Write. Make music. Code. Take photographs. Build things. Tell stories. Solve strange problems. Have ridiculous ideas. Or simply think about things differently.</p>
+
+    <p>Every superhero has an origin story. Maybe this is just another chapter in yours. And if you haven’t discovered your “powers” yet, that’s okay.</p>
+
+    <p>You don’t have to know what they are before you start. Maybe you haven’t figured out your thing yet.</p>
+
+    <p>That’s okay too.</p>
+
+    <p>This community is a place to share those things, finished or unfinished.</p>
+
+    <p>You can post pretty much anything that fits the spirit of the community:</p>
+
+    <ul class="emoji-list">
+        <li>🎨 Art, sketches and designs</li>
+        <li>✍️ Writing, poems and journal entries</li>
+        <li>🎵 Music, songs and playlists</li>
+        <li>📸 Photography and visual experiments</li>
+        <li>💻 Coding, projects and inventions</li>
+        <li>💡 Ideas, theories and observations</li>
+        <li>🧠 Random Thoughts</li>
+        <li>❓ Questions you have been afraid to ask elsewhere</li>
+        <li>📝 Something you’re working on but haven’t finished</li>
+        <li>🌱 Personal discoveries, progress and things you’re learning</li>
+        <li>❤️ Something you simply want someone else to hear</li>
+    </ul>
+
+    <p>You don’t need to be an expert.</p>
+    <p>You don’t need to have a polished portfolio.</p>
+    <p>You don’t even need to know exactly what you’re trying to say.</p>
+
+    <p>If you don’t know how to turn what’s in your head into something, we can try to make something together.</p>
+
+    <p>Sometimes a half-formed thought is where something interesting begins.</p>
+
+    <p>Or if you want to just talk about something you could do that.</p>
+
+    <h2>What kind of community are we trying to build?</h2>
+
+    <p>A space where people can:</p>
+    <ul>
+        <li>Talk. Share. Belong. Create. Inspire.</li>
+        <li>Be constructive, not cruel.</li>
+        <li>Be curious, not dismissive.</li>
+        <li>Challenge ideas without attacking the person behind them.</li>
+    </ul>
+
+    <p>And most importantly, leave some room for people to be themselves.</p>
+
+    <p>“Different” doesn’t automatically mean better or worse.</p>
+    <p>It just means different.</p>
+
+    <p>And sometimes, the things that make someone struggle in one environment can become incredibly useful in another.</p>
+
+    <p>We’re interested in discovering that other side of the story.</p>
+
+    <h2>How to get started</h2>
+    <ol>
+        <li><strong>Introduce yourself in the comments.</strong> Tell us whatever you’re comfortable sharing — what you’re interested in, what you create, what you’re learning, or simply what brought you here.</li>
+        <li><strong>Post something.</strong> It can be something you’ve made, something you’re thinking about, a question, an idea, or something you don’t know what to do with yet.</li>
+        <li><strong>Talk to someone else’s post.</strong> You don’t have to create something to contribute. Sometimes the most valuable thing you can do is make another person feel heard.</li>
+        <li><strong>Help us build the culture.</strong> This is the first wave of the community. What r/Inspireativity becomes will depend heavily on the people who show up at the beginning. If you think someone you know would feel at home here, invite them. And if you’d like to help moderate the community as it grows, send us a message.</li>
+    </ol>
+
+    <p class="closing-line">Welcome to <strong>r/Inspireativity</strong>.</p>
+</section>
+
+<section class="spidey-profile">
+    <p class="eyebrow">The person behind the mask</p>
+    <h2>inspireative_spidey</h2>
+    <div class="portrait-wrap small">
+        <img class="portrait" src="{{ url_for('static', filename='images/map/spidey-marker.jpg') }}"
+             alt="inspireative_spidey">
+    </div>
+    <div class="content-panel profile-copy">
+        <p>Friendly Neighbourhood AuDHD'er. This is a safe space. Share, talk, rant, do anything. Hopecore 📍 221 B, You’re not Alone Street, Will always reply, It’s me in the pic 🙂, Non Profit - Anonymous</p>
+    </div>
+</section>
+{% endblock %}

@@ -1,0 +1,121 @@
+{% extends "base.html" %}
+
+{% block title %}Spidey Map · Inspireativity{% endblock %}
+
+{% block head %}
+
+<link
+    rel="stylesheet"
+    href="https://unpkg.com/maplibre-gl@5/dist/maplibre-gl.css"
+/>
+
+{% endblock %}
+
+
+{% block content %}
+
+<section class="page-intro">
+
+  
+
+    <h1>
+        Spidey Map
+    </h1>
+
+    
+
+</section>
+
+
+<section class="map-shell">
+
+    <div
+        id="spidey-map"
+        aria-label="Map of Spidey meetups in Bengaluru"
+    ></div>
+
+
+    <div class="map-legend">
+
+        <img
+            src="{{ url_for('static', filename='images/map/spidey-marker.jpg') }}"
+            alt=""
+        >
+
+        <span>
+            Spidey meetup
+        </span>
+
+    </div>
+
+</section>
+
+
+<section class="map-list content-panel">
+
+    <h2>
+        Places we've been
+    </h2>
+
+
+    <div class="map-list-grid">
+
+        {% for meetup in meetups|reverse %}
+
+        <a
+            href="{{ url_for('meetup_detail', meetup_id=meetup.id) }}"
+            class="map-list-item"
+        >
+
+            <span class="map-number">
+                {{ meetup.id }}
+            </span>
+
+
+            <span>
+
+                <strong>
+                    {{ meetup.location }}
+                </strong>
+
+                <small>
+                    {{ meetup.date }}
+                </small>
+
+            </span>
+
+
+            <span class="map-arrow">
+                →
+            </span>
+
+        </a>
+
+        {% endfor %}
+
+    </div>
+
+</section>
+
+{% endblock %}
+
+
+{% block scripts %}
+
+<script src="https://unpkg.com/maplibre-gl@5/dist/maplibre-gl.js"></script>
+
+<script>
+
+    window.INSPIRIVITY_MEETUPS =
+        {{ meetups|tojson }};
+
+    window.INSPIRIVITY_MARKER =
+        "{{ url_for('static', filename='images/map/spidey-marker.jpg') }}";
+
+</script>
+
+<script
+    src="{{ url_for('static', filename='js/map.js') }}"
+></script>
+
+{% endblock %}

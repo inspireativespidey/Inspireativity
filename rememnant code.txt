@@ -1,0 +1,9 @@
+meetup.html : 
+
+<div class="location-note content-panel">
+    <strong>For future updates:</strong>
+    meetup locations live in <code>data/meetups.json</code>.
+    Run <code>python tools/geocode_meetups.py</code> after changing a location
+    and the map coordinates will be refreshed automatically using free
+    OpenStreetMap/Nominatim geocoding.
+</div>
