@@ -1,7 +1,27 @@
 {
   "rewrites": [
     {
-      "source": "/(.*)",
+      "source": "/",
+      "destination": "/api/index.py"
+    },
+    {
+      "source": "/about",
+      "destination": "/api/index.py"
+    },
+    {
+      "source": "/meetups",
+      "destination": "/api/index.py"
+    },
+    {
+      "source": "/meetups/:path*",
+      "destination": "/api/index.py"
+    },
+    {
+      "source": "/spidey-map",
+      "destination": "/api/index.py"
+    },
+    {
+      "source": "/contact",
       "destination": "/api/index.py"
     }
   ]
